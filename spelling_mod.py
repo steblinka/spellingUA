@@ -1,10 +1,10 @@
 import re
-for i in range(2241):
-    exampleFile = open(r'E:\py_files\Belapan\spelling\dt_ua\2021\dt_news_item_%s.txt' % (i + 1), encoding='utf-8')
+for i in range(?): # total number of files
+    exampleFile = open(r'news_item_%s.txt' % (i + 1), encoding='utf-8') #a file with a news item
     exampleFile1 = exampleFile.read()
-    with open(r'E:\py_files\Belapan\spelling\results_dt_21.txt', 'a', encoding='utf-8') as file:
+    with open(r'results.txt', 'a', encoding='utf-8') as file: #a file for the results
         print('--------------------------%s--------------------------' % (i+1), file=file)
-        with open (r'E:\py_files\Belapan\spelling\new.txt', encoding='utf-8') as f:
+        with open (r'spelling_new.txt', encoding='utf-8') as f: #a vocabulary with new spelling
             print('***ПРЕФІКСИ***', file=file)
             Ze = re.compile(r'\bпів\w+')
             li = Ze.findall(exampleFile1)
@@ -82,8 +82,8 @@ for i in range(2241):
                     p = ('%s' % (u))
                     print(p, file=file)
             
-        with open (r'E:\py_files\Belapan\spelling\old.txt', encoding='utf-8') as f:
-            print('***OLD***', file=file)
+        with open (r'spelling_old.txt', encoding='utf-8') as f:
+            print('***OLD***', file=file)  #a vocabulary with old spelling
             old_items = [row.strip() for row in f]
             for i in range(len(old_items)):
                 ze = re.compile(old_items[i])
