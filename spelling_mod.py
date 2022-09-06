@@ -1,8 +1,8 @@
 import re
 for i in range(41):
-    exampleFile = open(r'E:\py_files\Belapan\spelling\dt_ua\2021\dt_news_item_%s.txt' % (i + 1), encoding='utf-8')
+    exampleFile = open(r'file_with_news_items_%s.txt' % (i + 1), encoding='utf-8')
     exampleFile1 = exampleFile.read()
-    with open(r'E:\py_files\Belapan\spelling\results_old_spelling.txt', 'a', encoding='utf-8') as file:
+    with open(r'results_old_spelling.txt', 'a', encoding='utf-8') as file:
         ex = re.compile(r'\bекс-\w+')
         ex_t = ex.findall(exampleFile1)
         vice = re.compile(r'\bвіце-\w+')
@@ -28,7 +28,7 @@ for i in range(41):
         ex_t.extend(top_t)
         result = '\n'.join(ex_t)
         print(result, file=file)
-    with open(r'E:\py_files\Belapan\spelling\results_all_21.txt', 'a', encoding='utf-8') as file:
+    with open(r'results_all_21.txt', 'a', encoding='utf-8') as file:
         ex = re.compile(r'\bекс\w+')
         ex_t = ex.findall(exampleFile1)
         vice = re.compile(r'\bвіце\w+')
@@ -55,7 +55,7 @@ for i in range(41):
         result = '\n'.join(ex_t)
         print(result, file=file)
 
-exampleFile = open(r'E:\py_files\Belapan\spelling\results_all_21.txt', encoding='utf-8')
+exampleFile = open(r'results_all_21.txt', encoding='utf-8')
 exampleF = exampleFile.read()
 stoplist = set('''
 вебінару
@@ -281,13 +281,13 @@ stoplist = set('''
 '''.split('\n'))
 new_text = [word for word in exampleF.split() if word not in stoplist]
 new_text_1 = ' '.join(new_text)
-with open(r'E:\py_files\Belapan\spelling\results_new_spelling.txt', 'a', encoding='utf-8') as file:
+with open(r'results_new_spelling.txt', 'a', encoding='utf-8') as file:
     print(new_text_1, file=file)
 
-newfile = open(r'E:\py_files\Belapan\spelling\results_new_spelling.txt', 'r')
+newfile = open(r'results_new_spelling.txt', 'r')
 read_data = newfile.read()
 per_wordN = read_data.split()
-oldfile = open(r'E:\py_files\Belapan\spelling\results_old_spelling.txt', 'r')
+oldfile = open(r'results_old_spelling.txt', 'r')
 read_data = oldfile.read()
 per_wordO = read_data.split()
 
@@ -296,18 +296,18 @@ print('OLD international component:', len(per_wordO))
 
 
 import re
-for i in range(2241):
-    exampleFile = open(r'E:\py_files\Belapan\spelling\dt_ua\2021\dt_news_item_%s.txt' % (i + 1), encoding='utf-8')
+for i in range(41):
+    exampleFile = open(r'file_with_news_items_%s.txt' % (i + 1), encoding='utf-8')
     exampleFile1 = exampleFile.read()
-    with open(r'E:\py_files\Belapan\spelling\results_old_piv_all.txt', 'a', encoding='utf-8') as file:
+    with open(r'results_old_piv_all.txt', 'a', encoding='utf-8') as file:
         pivO = re.compile(r'\bпів\w+')
         pivO_t = pivO.findall(exampleFile1)
         print('\n'.join(pivO_t), file=file)
-    with open(r'E:\py_files\Belapan\spelling\results_new_piv.txt', 'a', encoding='utf-8') as file:
+    with open(r'results_new_piv.txt', 'a', encoding='utf-8') as file:
         pivN = re.compile(r' пів\s\w+')
         pivN_t = pivN.findall(exampleFile1)
         print('\n'.join(pivN_t), file=file)
-exampleFile = open(r'E:\py_files\Belapan\spelling\results_old_piv_all.txt', encoding='utf-8')
+exampleFile = open(r'results_old_piv_all.txt', encoding='utf-8')
 exampleF = exampleFile.read()
 stoplist = set('''
 півгодинні
